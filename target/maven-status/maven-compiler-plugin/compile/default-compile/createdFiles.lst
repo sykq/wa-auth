@@ -1,0 +1,8 @@
+org\psc\waauth\WaAuthMvcConfig.class
+org\psc\waauth\user\WaAuthUserDetailsService.class
+org\psc\waauth\user\model\User.class
+org\psc\waauth\WaAuthController.class
+org\psc\waauth\WebSecurityConfig.class
+org\psc\waauth\user\UserRepository.class
+org\psc\waauth\WaAuthApplication.class
+org\psc\waauth\user\model\Usercredential.class
