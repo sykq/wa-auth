@@ -4,6 +4,7 @@
 		<class>org.psc.waauth.user.domain.User</class>
 		<class>org.psc.waauth.user.domain.UserCredentials</class>
 		<class>org.psc.waauth.user.domain.UserRole</class>
+		<class>org.psc.waauth.user.domain.UserRoleId</class>
 		<properties>
 			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:derby:F:\Informatik\derby\db1?currentSchema=APP"/>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
