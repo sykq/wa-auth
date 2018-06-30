@@ -23,15 +23,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//@formatter:off
 	    http
 	    	.authorizeRequests()
-               	.antMatchers("/", "/home", "/create-account").permitAll()
-               	.antMatchers("/home-sec").hasRole("ADMIN")
+               	.antMatchers("/", "/home", "/create-account", "/h2-console/**").permitAll()
+               	.antMatchers("/home-sec", "/user/**").hasAnyRole("ADMIN", "USER")
+               	//.antMatchers("/h2-console/**").hasRole("ADMIN")
+               	.anyRequest().authenticated()
                	.and()
            	.formLogin()
                	.loginPage("/login")
                	.permitAll()
                	.and()
            	.logout()
-           		.permitAll();
+           		.permitAll()
+           		.logoutSuccessUrl("/home");
 		//@formatter:on
 	}
 
@@ -40,6 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	 * throws Exception { builder.userDetailsService(new
 	 * WaAuthUserDetailsService()); }
 	 */
+	/*
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
@@ -50,4 +54,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		return new InMemoryUserDetailsManager(user, admin);
 	}
+	*/
 }

@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>wa-auth</title>
-    </head>
-    <body>
-        <h1>Welcome!</h1>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>wa-auth</title>
+</head>
+<body>
+	<div th:fragment="logout" class="logout"
+		sec:authorize="isAuthenticated()">
+		Logged in user: <span sec:authentication="name"></span> | Roles: <span
+			sec:authentication="principal.authorities"></span>
+		<div>
+			<form action="#" th:action="@{/logout}" method="post">
+				<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>
+	<h1>Welcome!</h1>
 
-        <p>Click <a th:href="@{/greeting}">here</a> to see a greeting.</p>
-        <p>Click <a th:href="@{/home-sec}">here</a> to see the private home.</p>
-    </body>
+	<p>
+		Click <a th:href="@{/greeting}">here</a> to see a greeting.
+	</p>
+	<p>
+		Click <a th:href="@{/home-sec}">here</a> to see the private home.
+	</p>
+	<p>
+		Click <a th:href="@{/user/user-home}">here</a> to see the private home
+		2.
+	</p>
+	<p>
+		<a th:href="@{/create-account}">Register Account</a>
+	</p>
+</body>
 </html>

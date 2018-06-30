@@ -6,26 +6,25 @@
 <title>wa-auth crate account</title>
 </head>
 <body>
-	<div th:if="${param.error}">Invalid username and password.</div>
-	<form th:action="@{/create-account}" method="post">
+	<form th:action="@{/create-account}" th:object="${userRegistrationBean}" method="post">
 		<div>
-			<label>User Name: <input type="text" name="username" /></label>
+			<label>User Name: <input type="text" id="userName" name="userName" /></label>
 		</div>
 		<div>
-			<label>Email Address: <input type="text" name="email" /></label>
+			<label>Email Address: <input type="text" id="emailAddress" name="emailAddress" /></label>
 		</div>
 		<br>
 		<div>
-			<label> Account Name: <input type="text" name="accountname" />
+			<label> Account Name: <input type="text" id="accountName" name="accountName" />
 			</label>
 		</div>
 		<div>
-			<label>Password: <input type="password" name="password" />
+			<label>Password: <input type="password" id="password" name="password" />
 			</label>
 		</div>
 		<div>
-			<label>Confirm Password: <input type="password"
-				name="confirm-password" />
+			<label>Confirm Password: <input type="password" id="confirmationPassword"
+				name="confirmationPassword" />
 			</label>
 		</div>
 		<br>
