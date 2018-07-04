@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>GenericContract2FormSheet</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/src/main/resources/static/css/style.css"
+	th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1>GenericContract2FormSheet</h1>
+	<form action="#" th:action="@{/genericcontract2formsheet}"
+		th:object="${conversionConfiguration}" method="post">
+		<input type="submit" value="Submit" /> <input type="reset"
+			value="Reset" />
+		<div>
+			<label> Form Id: <input type="text" th:field="*{formId}"
+				value="201" size="4" />
+			</label>
+		</div>
+	</form>
+
+
+	<div class="table-responsive">
+
+		<table class="table" id="textpanel">
+			<thead>
+				<tr>
+					<th>GenericContract:</th>
+					<th></th>
+					<th>FormSheet XML:</th>
+				</tr>
+			</thead>
+			<form action="#" th:action="@{/genericcontract2formsheet}"
+				th:object="${conversionConfiguration}" method="post">
+			<tbody>
+				<tr>
+					<td><textarea name="genericContract_textarea" rows="500"
+							cols="100" th:object="${conversionConfiguration}"
+							th:field="*{genericContract}"></textarea></td>
+					<td valign="top" align="center">
+						<button type="submit" name="toFormSheet">leftToRight</button>
+						<button type="submit" name="toGenericContract">rightToLeft</button>
+						<button type="submit" name="downloadFormSheet">download</button>
+					</td>
+					<td><textarea name="genericContract_textarea" rows="500"
+							cols="100" th:object="${conversionConfiguration}"
+							th:field="*{formSheetXml}"></textarea></td>
+				</tr>
+			</tbody>
+			</form>
+		</table>
+	</div>
+</body>
+</html>

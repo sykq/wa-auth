@@ -77,3 +77,5 @@ target/classes/templates/home.html
 target/classes/templates/login.html
 target/test-classes/logback-test.xml
 .svn/wc.db
+/.apt_generated/
+/target/

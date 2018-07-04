@@ -16,5 +16,6 @@ public class WaAuthMvcConfig implements WebMvcConfigurer {
 		registry.addViewController("/create-account").setViewName("create-account");
 		registry.addViewController("/home-sec").setViewName("home-sec");
 		registry.addViewController("/user/user-home").setViewName("user-home");
+		registry.addViewController("/genericcontract2formsheet").setViewName("genericcontract2formsheet");
 	}
 }

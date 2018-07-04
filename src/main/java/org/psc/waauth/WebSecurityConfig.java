@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//@formatter:off
 	    http
 	    	.authorizeRequests()
-               	.antMatchers("/", "/home", "/create-account", "/h2-console/**").permitAll()
+               	.antMatchers("/", "/home", "/create-account", "/h2-console/**", "/genericcontract2formsheet").permitAll()
                	.antMatchers("/home-sec", "/user/**").hasAnyRole("ADMIN", "USER")
                	//.antMatchers("/h2-console/**").hasRole("ADMIN")
                	.anyRequest().authenticated()
