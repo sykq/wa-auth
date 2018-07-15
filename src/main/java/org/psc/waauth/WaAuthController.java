@@ -1,7 +1,6 @@
 package org.psc.waauth;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -55,6 +54,13 @@ public class WaAuthController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/home", params = { "create-account" }, method = RequestMethod.POST)
+	public ModelAndView createAccountPost() {
+		ModelAndView modelAndView = new ModelAndView();
+
+		return modelAndView;
+	}
+
 	@RequestMapping(value = "/genericcontract2formsheet", method = RequestMethod.GET)
 	public ModelAndView getGenericContractToFormSheet(@ModelAttribute ConversionConfiguration config,
 			BindingResult bindingResult) {
@@ -97,7 +103,7 @@ public class WaAuthController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/genericcontract2formsheet", params = {"downloadFormSheet"}, method = RequestMethod.POST)
+	@RequestMapping(value = "/genericcontract2formsheet", params = { "downloadFormSheet" }, method = RequestMethod.POST)
 	public @ResponseBody Resource downloadFormSheet(@ModelAttribute ConversionConfiguration config,
 			HttpServletResponse response) throws IOException {
 		String fileName = new StringBuilder().append("temp_").append(String.valueOf(System.nanoTime())).append(".xml")
@@ -108,11 +114,11 @@ public class WaAuthController {
 		fos.write(config.getFormSheetXml().getBytes(StandardCharsets.UTF_8));
 		fos.flush();
 		fos.close();
-		
+
 		response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
 		response.setHeader("Content-Disposition", "attachment; filename=" + formSheetAsFile.getName());
 		response.setHeader("Content-Length", String.valueOf(formSheetAsFile.length()));
-		
+
 		return new FileSystemResource(formSheetAsFile);
 	}
 

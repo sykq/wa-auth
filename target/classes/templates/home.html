@@ -3,9 +3,15 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 <title>wa-auth</title>
 </head>
 <body>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
 	<div th:fragment="logout" class="logout"
 		sec:authorize="isAuthenticated()">
 		Logged in user: <span sec:authentication="name"></span> | Roles: <span
@@ -29,7 +35,16 @@
 		2.
 	</p>
 	<p>
-		<a th:href="@{/create-account}">Register Account</a>
+	<form action="#" th:action="@{/home}" method="post"><input type="submit" value="create account" name="create-account"/></form>
 	</p>
+<div class="modal"><!-- Place at bottom of page --></div>
+	<script>
+$body = $("body");
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+});
+
+</script>
 </body>
 </html>
